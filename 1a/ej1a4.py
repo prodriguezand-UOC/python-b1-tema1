@@ -33,10 +33,21 @@ Exemple:
 
 '''
 
-def count_vowels(text_chain:str):
-    # Write here your code
-    pass
+def count_vowels(text_chain: str):
+    # Validación
+    if not isinstance(text_chain, str):
+        raise ValueError("El parámetro debe ser una cadena de texto (string).")
+
+    vowels = "aeiouAEIOU"
+    count = 0
+
+    for ch in text_chain:
+        if ch in vowels:
+            count += 1
+
+    return count
+
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(count_vowels("Hello world, this is an example."))
+print(count_vowels("Hello world, this is an example."))
