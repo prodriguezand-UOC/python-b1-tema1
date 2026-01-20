@@ -35,9 +35,22 @@ Exemple:
 """
 
 def obtain_max(list_numbers):
-    # Write here your code
-    pass
+    # Validar que sea una lista
+    if not isinstance(list_numbers, list):
+        raise ValueError("El parámetro debe ser una lista de números enteros.")
+
+    # Validar que no esté vacía
+    if len(list_numbers) == 0:
+        raise ValueError("La lista no puede estar vacía.")
+
+    # Validar que todos sean enteros
+    for n in list_numbers:
+        if not isinstance(n, int):
+            raise ValueError("La lista debe contener solo números enteros.")
+
+    return max(list_numbers)
+
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(obtain_max([1, 45, 87, 21, 0, 23, 28]))
+print(obtain_max([1, 45, 87, 21, 0, 23, 28]))

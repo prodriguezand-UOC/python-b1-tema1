@@ -65,10 +65,18 @@ Exemple:
 
 import math
 
+import math
+
 def calculate_angle(angle):
-    # Write here your code
-    pass
+    # Validación: debe ser numérico (int o float)
+    if not isinstance(angle, (int, float)):
+        raise ValueError("El parámetro 'angle' debe ser un número.")
+
+    radians_value = math.radians(angle)     # grados -> radianes
+    sine_value = math.sin(radians_value)    # seno del ángulo
+    return round(sine_value, 2)             # redondeado a 2 decimales
+
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(calculate_angle(270))
+print(calculate_angle(270))
