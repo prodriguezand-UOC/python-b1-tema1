@@ -38,11 +38,26 @@ Exemple:
 
 
 def find_max(lst):
-    # Write here your code
-    pass
+    # Validación
+    if not isinstance(lst, list):
+        raise ValueError("El parámetro debe ser una lista.")
+    if len(lst) == 0:
+        raise ValueError("La lista no puede estar vacía.")
+
+    for n in lst:
+        if not isinstance(n, (int, float)):
+            raise ValueError("La lista debe contener solo números (int o float).")
+
+    # Caso base
+    if len(lst) == 1:
+        return lst[0]
+
+    # Paso recursivo
+    max_rest = find_max(lst[1:])
+    return lst[0] if lst[0] > max_rest else max_rest
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# numbers_list = [1, 5, 2, 7, 3]
-# print(find_max(numbers_list))
+numbers_list = [1, 5, 2, 7, 3]
+print(find_max(numbers_list))
