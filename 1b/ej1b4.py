@@ -61,13 +61,26 @@ Exemple:
      Standard deviation: 26.03
 '''
 
-
 import numpy as np
 
 def results(list_numbers):
-    # Write here your code
-    pass
+    # Validación básica (opcional pero recomendable)
+    if not isinstance(list_numbers, list) or len(list_numbers) == 0:
+        raise ValueError("El parámetro debe ser una lista no vacía de números.")
+
+    for n in list_numbers:
+        if not isinstance(n, (int, float)):
+            raise ValueError("La lista debe contener únicamente valores numéricos (int o float).")
+
+    avg = round(np.mean(list_numbers), 2)
+    std = round(np.std(list_numbers), 2)
+
+    print(f"Average: {avg}")
+    print(f"Standard deviation: {std}")
+
+    return avg, std
+
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# results([1, 2, 10, -5, 0, 9.55, 74.825, 55, 8, 42])
+results([1, 2, 10, -5, 0, 9.55, 74.825, 55, 8, 42])
